@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G259HS8FNT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G259HS8FNT');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Masked Humanoid Controller for Humanoid Robots">
+  <meta name="keywords" content="Locomotion, Reinforcement Learning, Expression, Robots">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masked Humanoid Controller</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="./static/js/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+  <script src="./static/js/isInViewport.min.js"></script>
+  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./resources/favicon.ico">
+  
+  <script src="https://kit.fontawesome.com/006a5775d5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Masked Whole-Body Controller for Humanoid Robots</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <!-- <TBD> git io pages </TBD> -->
+              <a href="https://www.linkedin.com/in/pranaydugar/">Pranay Dugar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://idigitopia.github.io/">Aayam Shrestha</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://www.yufangzhou.xyz/">Fangzhou Yu</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://b-vm.github.io/btjvm/">Bart van Marum</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://web.engr.oregonstate.edu/~afern/">Alan Fern</a>
+              <br><br>
+              <img src="./resources/OSU_horizontal_2C_O_over_B.png" width="20%"></img><br><br>
+              <!-- <span class="brmod">CoRL 2024</span><br> -->
+            </span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./resources/Masked_Controller_For_Humanoid_Robots.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              
+              <!-- Video Link. <TBD> -->
+              <!-- <span class="link-block">
+                <a href="https://youtu.be/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Result Video</span>
+                </a>
+              </span> -->
+              
+              <!-- twitter Link. -->
+              <!-- <span class="link-block">
+                <a href="https://x.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Summary</span>
+                </a>
+              </span> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper video. -->
+
+<!-- <section class="section" style="padding-bottom: 0">
+  <div class="container">
+    <div id="method_video" class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds no-bottom-padding">
+          <iframe height="500" src="https://www.youtube.com/" title="YouTube video player" frameborder="0" style="border: 1px solid #bbb; border-radius: 10px; width: 100%;" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div><br><br><br>
+</section> -->
+
+<section class="section">
+
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="subtitle has-text-justified">
+          <p>
+            We introduce the Masked Humanoid Controller (MHC) for whole-body tracking of target trajectories over arbitrary subsets of humanoid state variables. This enables the realization of whole-body motions from diverse sources such as video, motion capture, and VR, while ensuring balance and robustness against disturbances. The MHC is trained in simulation using a carefully designed curriculum that imitates partially masked motions from a library of behaviors spanning pre-trained policy rollouts, optimized reference trajectories, re-targeted video clips, and human motion capture data. We showcase simulation experiments validating the MHC's ability to execute a wide variety of behavior from partially-specified target motions. Moreover, we also highlight sim-to-real transfer as demonstrated by real-world trials on the Digit humanoid robot. To our knowledge, this is the first instance of a learned controller that can realize whole-body control of a real-world humanoid for such diverse multi-modal targets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Masked Controller</h2>
+        <h2 class="subtitle" style="text-align: center;">
+          A controller that can take different combination of inputs and execute whole body motions on a real humanoid
+        </h2>
+        <td>
+          <div class="row">
+            <div class="col">
+                <video id="uptownVideo" autoplay muted loop playsinline controls src="./resources/clips/locomotion.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Locomotion</a></h4>
+            </div>
+            <div class="col">
+              <video id="hiphopVideo" autoplay muted loop playsinline controls src="./resources/clips/perturb.mp4" width="100%"
+                     style="border-radius:10px; "></video>
+              <h4 style="text-align: center;">Perturbation</a> </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <video id="uptownVideo" autoplay muted loop playsinline controls src="./resources/clips/upper_body.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Upper Body Mimicry (Lower body masked)</a></h4>
+            </div>
+            <div class="col">
+              <video id="hiphopVideo" autoplay muted loop playsinline controls src="./resources/clips/whole_body.mp4" width="100%"
+                     style="border-radius:10px; "></video>
+              <h4 style="text-align: center;">Whole Body Mimicry</a> </h4>
+            </div>
+          </div>
+        </td>
+        </tr>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Our Approach</h2>
+        <div class="content" style="text-align: center;">
+          <div style="display: inline-block; text-align: left;">
+            <ul style="list-style-position: inside;">
+              <li>Dataset of human motions retargeted to Humanoid</li>
+              <li>Target lookahead created by masking components of a sample motion</li>
+              <li>Controller (MHC) trained to follow partial commands</li>
+              <li>Trained in simulation following a curriculum</li>
+              <li>Dynamics randomization applied during training for transfer to Real</li>
+            </ul>
+          </div>
+          <img src="./resources/approach.png"
+              class="interpolation-image" alt="Interpolate start reference image."/>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Training Curriculum</h2>
+        <div class="content has-text-centered">
+          <img src="./resources/curriculum.png"
+              class="interpolation-image" alt="Interpolate start reference image."/>
+
+        </div>
+        </tr>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">MHC in Simulation</h2>
+        <tr>
+          <td>
+              <h2 class="subtitle">
+                  A vast set of motions that MHC is able to replicate in simulation using a single masked controller
+              </h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="row">
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip1.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Walk</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip2.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Turn in-place</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip13.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Wide Turn</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip14.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Zombie walk</a></h4>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip3.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Defend & Jab</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip10.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Lead Hook</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip4.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Upper Cut</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip11.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Rear Upper Cut</a></h4>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip5.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Squat</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip7.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Hand Wave</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip12.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Golf Drive</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip6.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Dance</a></h4>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip8.mp4" width="100%"
+                         style="border-radius:10px; "> Hand wave</video>
+                <h4 style="text-align: center;">Reallusion Shield Walk</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip9.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Reallusion Taunt</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip15.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Reallusion Sword swing</a></h4>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/clips/sim_clips/clip16.mp4" width="100%"
+                       style="border-radius:10px; "></video>
+                <h4 style="text-align: center;">Reallusion Shield swing</a></h4>
+              </div>
+            </div>
+            <br>
+            
+            <br>
+          </td>
+        </tr>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;" id="demo">Box Pick-Up</h2>
+        <h4 class="title is-4" style="text-align: center; padding-bottom: 10px;" id="demo">Upper Body + Locomotion</h4>
+          <div class="subtitle" style="text-align: center;">
+            <p> 
+              (The controller has no perception capabilities and is blindly following the given motion trajectories without any knowledge of the box in hand.)
+            </p>
+          </div>
+          <div>
+            <video autoplay muted loop playsinline controls src="./resources/clips/box_pickup.mp4" width="100%"
+                    style="border-radius:10px; "></video>
+          </div>
+          <br>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="titile">BibTeX</h2>
+    <pre><code>
+@article{pranay2024MHC,
+title={Learning Multi-Modal Whole-Body Control for Real-World Humanoid Robots},
+author={Pranay Dugar, Aayam Shrestha, Fangzhou Yu, Bart van Marum, Alan Fern},
+journal={(Under Submission)},
+year={2024}
+}
+</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./resources/Masked_Controller_For_Humanoid_Robots.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+          <p>This website is developed based on the <a href="https://nerfies.github.io/">Nerfies</a> project page.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+<script>
+  var mainLoopId = setInterval(function(){
+        $('video').not('#teaser').each(function(){
+      if ($(this).is(":in-viewport")) {
+          $(this)[0].play();
+      } else {
+          $(this)[0].pause();
+      }
+      })
+    },200);
+</script>
+
+</html>
